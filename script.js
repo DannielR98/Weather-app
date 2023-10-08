@@ -1,6 +1,6 @@
 const apiKey = "d2b240e1c10f5c7cbea860fa0329d8f8";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-    
+    const response_initial = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=stockholm&appid=d2b240e1c10f5c7cbea860fa0329d8f8";
     const searchBox = document.querySelector(".search input");
     const searchBtn = document.querySelector(".search button");
     const weatherIcon = document.querySelector(".weather-icon");
@@ -11,7 +11,7 @@ const apiKey = "d2b240e1c10f5c7cbea860fa0329d8f8";
     async function checkWeather(city){
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
-        if(response.status == 404)
+        if(response.status == 404 || response.status == 400 || searchBox.value == "") 
         {
             document.querySelector(".error").style.display = "block";
             document.querySelector(".weather").style.display = "none";
@@ -52,6 +52,15 @@ const apiKey = "d2b240e1c10f5c7cbea860fa0329d8f8";
         
         
     }
+
+
+
+
+
+
+
+
+    
    
     searchBtn.addEventListener("click", ()=> {
         checkWeather(searchBox.value);
