@@ -101,7 +101,14 @@ const apiKey = "d2b240e1c10f5c7cbea860fa0329d8f8";
 
     
 
-    
+    searchBox.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            // Prevent the default behavior of the Enter key (form submission)
+            event.preventDefault();
+            // Trigger a click on the search button
+            searchBtn.click();
+        }
+    });
    
     searchBtn.addEventListener("click", ()=> {
         checkWeather(searchBox.value);
