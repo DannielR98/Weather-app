@@ -111,7 +111,7 @@ const apiKey = "d2b240e1c10f5c7cbea860fa0329d8f8";
     });
    
     searchBtn.addEventListener("click", ()=> {
-        checkWeather(searchBox.value);
+        checkWeather(searchBox.value.trim());
     })
 
     
